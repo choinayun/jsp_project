@@ -15,20 +15,20 @@
 
 </head>
 <body>
-	
+
 	<div id="wrap">
 	<jsp:include page="/default/header.jsp"/>
-	
-	<!-- 영화리스트 평점순으로 정렬 -->
+
+	<!-- 영화리스트 조회순으로 정렬 -->
 
 	<jsp:useBean id="dao" class="movie.MovieDAO" />
-	<% ArrayList<MovieDTO> li = dao.list(); %>
+	<% ArrayList<MovieDTO> hli = dao.hitList(); %>
 	
-	<input type="button" value="조회수" onclick="location.href='hitList.jsp'">
+	<input type="button" value="조회순" onclick="location.href='hitList.jsp'">
 	<input type="button" value="평점순" onclick="location.href='list.jsp'">
-	<hr>
+	<input type="button" value="영화 등록" onclick="location.href='insert.jsp'">
 	
-	<% for(MovieDTO dto : li) { %>
+	<% for(MovieDTO dto : hli) { %>
 	<div id="mlist">
 		<div>
 			<a href="info.jsp?m_name=<%= dto.getM_name() %>"><img src=<%=dto.getImg() %>></a>
