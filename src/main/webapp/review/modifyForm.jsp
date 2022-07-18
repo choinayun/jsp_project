@@ -44,6 +44,7 @@
 			<tr>
 				<td>평점</td>
 				<td colspan="3">
+				<img src="img/star.png" width="12px" height="12px" >
 				<select name="r_grade" id="r_grade">
 				<option >0<option>1<option >2<option>3<option >4<option>5
 				<option >6<option>7<option >8<option>9<option >10
