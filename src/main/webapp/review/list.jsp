@@ -20,7 +20,7 @@
 		<tr>
 			<td colspan="3" style="align-content: left; font-size: bold;"><h4>전체 리스트</h4></td>
 			<td colspan="3" align="right" >
-		<input type="button" value="내가 작성한 리뷰 보기" onclick="location.href='write_view.jsp?id=고길동'">
+		<input type="button" value="내가 작성한 리뷰 보기" onclick="location.href='write_view.jsp?id=${ loginId }'">
 		</td>
 		</tr>
 		<tr>

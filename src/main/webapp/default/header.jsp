@@ -22,6 +22,11 @@
 			location.href="" + text
 		}
 	}
+
+	function searchBtn() {
+		let search = document.getElementById("search").value
+		location.href="a" + search
+	}
 </script>
 </head>
 <body>
@@ -29,14 +34,18 @@
 	<ul>
 		<c:choose>
 			<c:when test="${ loginId == null }">
-				<li><a href="member/loginForm.jsp">로그인</a></li>
-				<li><a href="member/registerForm.jsp">회원가입</a></li>
+
+				<li><a href="/jsp_project/member/loginForm.jsp">로그인</a></li>
+				<li><a href="/jsp_project/member/registerForm.jsp">회원가입</a></li>
 			</c:when>
 			<c:otherwise>
-				<li><a href="member/logout.jsp">로그아웃</a></li>
-				<li><a href="member/myInfo.jsp">내정보</a></li>
+				<li><a href="/jsp_project/member/logout.jsp">로그아웃</a></li>
+				<li><a href="/jsp_project/member/myInfo.jsp">내정보</a></li>
 			</c:otherwise>
 		</c:choose>
+		<c:if test="${ loginId == 'admin' }">
+			<li><a href="/jsp_project/member/managementForm.jsp">관리</a></li>
+		</c:if>
 	</ul>
 		<h1 class="title"><a href="http://localhost:8085/jsp_project/index.jsp">Movie</a></h1>
 	<div class="service_area">
@@ -44,8 +53,8 @@
 			<li><a href="">영화 순위</a></li>	
 			<li><a href="">홈</a></li>
 			<li><a href="/jsp_project/review/list.jsp">리뷰</a></li>
-			<li class="search"><input type="text" placeholder="Search" name="search" onkeyup="enterKey(this)"></li>
-			<li><input type="button" value="검색" class="searchBtn"></li>
+			<li class="search"><input type="text" placeholder="Search" name="search" onkeyup="enterKey(this)" id="search"></li>
+			<li><input type="button" value="검색" class="searchBtn" onclick="searchBtn()"></li>
 		</ul>
 	</div>
 </div>

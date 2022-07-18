@@ -30,7 +30,7 @@
 				<td><input type="text" name="m_name" readonly="readonly" value="레베카"></td>
 			</tr>
 			<tr>
-				<td>아이디</td><td><input type="text" name="id" readonly="readonly" value="고길동"></td>
+				<td>아이디</td><td><input type="text" name="id" readonly="readonly" value="${ loginId }"></td>
 				<td>평점</td>
 				<td >
 				<img src="img/star.png" width="12px" height="12px" >
