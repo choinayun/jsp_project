@@ -14,6 +14,7 @@
 	.title a { font-size: 50pt; text-shadow: 10px 10px 20px gray; color: black; }
 	.service_area { border-top: 2px solid gray; border-bottom: 2px solid gray; height: 50px; }
 	.searchBtn { height: 22px; margin-top: 1px; margin-left: -25px; }
+
 </style>
 <script type="text/javascript">
 	function enterKey(obj){
@@ -44,15 +45,16 @@
 			</c:otherwise>
 		</c:choose>
 		<c:if test="${ loginId == 'admin' }">
-			<li><a href="/jsp_project/member/managementForm.jsp">관리</a></li>
+			<li><a href="http://localhost:8085/jsp_project/index.jsp">관리</a></li>
 		</c:if>
 	</ul>
 		<h1 class="title"><a href="http://localhost:8085/jsp_project/index.jsp">Movie</a></h1>
+
 	<div class="service_area">
 		<ul>
 			<li><a href="">영화 순위</a></li>	
 			<li><a href="">홈</a></li>
-			<li><a href="">리뷰</a></li>
+			<li><a href="/jsp_project/review/list.jsp">리뷰</a></li>
 			<li class="search"><input type="text" placeholder="Search" name="search" onkeyup="enterKey(this)" id="search"></li>
 			<li><input type="button" value="검색" class="searchBtn" onclick="searchBtn()"></li>
 		</ul>
