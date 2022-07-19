@@ -23,9 +23,11 @@
 
 	<jsp:useBean id="dao" class="movie.MovieDAO" />
 	<% ArrayList<MovieDTO> li = dao.list(); %>
-	
-	<input type="button" value="조회수" onclick="location.href='hitList.jsp'">
-	<input type="button" value="평점순" onclick="location.href='list.jsp'">
+	<br>
+	<div>
+		<input type="button" value="조회수" onclick="location.href='hitList.jsp'">
+		<input type="button" value="평점순" onclick="location.href='list.jsp'">
+	</div>
 	<hr>
 	
 	<% for(MovieDTO dto : li) { %>

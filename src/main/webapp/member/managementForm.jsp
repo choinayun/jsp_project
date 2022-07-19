@@ -51,6 +51,7 @@
 </head>
 <body>
 	<jsp:useBean id="dao" class="member.MemberDAO"/>
+	<jsp:useBean id="dao1" class="movie.MovieDAO"/>
 <div id="wrap">
 	<jsp:include page="../default/header.jsp"/>
 	<div class="management">
@@ -75,10 +76,17 @@
 		</table>
 		<table border="1" class="movie_list" style="display: none;">
 			<tr>
-				<th>123123</th>
-				<th>12313</th>
-				<th>12312312</th>
+				<th>영화제목</th>
+				<th>평점</th>
+				<th>조회수</th>
 			</tr>
+			<c:forEach var="dto" items="${ dao1.hitList() }">
+				<tr>
+					<td><a href="../movie/info.jsp?m_name=${ dto.m_name }">${ dto.m_name }</a></td>
+					<td>${ dto.grade }</td>
+					<td>${ dto.hit }</td>
+				</tr>
+			</c:forEach>
 		</table>
 		<table border="1" class="review_list" style="display: none;">
 			<tr>

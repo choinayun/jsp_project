@@ -45,15 +45,15 @@
 			</c:otherwise>
 		</c:choose>
 		<c:if test="${ loginId == 'admin' }">
-			<li><a href="http://localhost:8085/jsp_project/index.jsp">관리</a></li>
+			<li><a href="http://localhost:8085/jsp_project/member/managementForm.jsp">관리</a></li>
 		</c:if>
 	</ul>
 		<h1 class="title"><a href="http://localhost:8085/jsp_project/index.jsp">Movie</a></h1>
 
 	<div class="service_area">
 		<ul>
-			<li><a href="">영화 순위</a></li>	
-			<li><a href="">홈</a></li>
+			<li><a href="/jsp_project/movie/list.jsp">전체 영화</a></li>	
+			<li><a href="">TOP 10</a></li>
 			<li><a href="/jsp_project/review/list.jsp">리뷰</a></li>
 			<li class="search"><input type="text" placeholder="Search" name="search" onkeyup="enterKey(this)" id="search"></li>
 			<li><input type="button" value="검색" class="searchBtn" onclick="searchBtn()"></li>
