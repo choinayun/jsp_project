@@ -52,6 +52,8 @@
 </head>
 <body>
 	<jsp:useBean id="dao" class="member.MemberDAO"/>
+	<jsp:useBean id="dao1" class="movie.MovieDAO"/>
+	<jsp:useBean id="dao2" class="review.ReviewDAO"/>
 <div id="wrap">
 	<jsp:include page="../default/header.jsp"/>
 	<div class="management">
@@ -76,20 +78,34 @@
 		</table>
 		<table border="1" class="movie_list" style="display: none;">
 			<tr>
-				<th>123123</th>
-				<th>12313</th>
-				<th>12312312</th>
+				<th>영화제목</th>
+				<th>평점</th>
+				<th>조회수</th>
 			</tr>
+			<c:forEach var="dto" items="${ dao1.hitList() }">
+				<tr>
+					<td><a href="../movie/info.jsp?m_name=${ dto.m_name }">${ dto.m_name }</a></td>
+					<td>${ dto.grade }</td>
+					<td>${ dto.hit }</td>
+				</tr>
+			</c:forEach>
 			<tr class="renewalBtn">
 				<td colspan="3" ><input type="button" value="영화 갱신" onclick="location.href='/jsp_project/movie/movieRenewal.jsp'"></td>
 			</tr>
 		</table>
 		<table border="1" class="review_list" style="display: none;">
 			<tr>
-				<th>7777777777</th>
-				<th>7777777777</th>
-				<th>7777777777</th>
+				<th>영화이름</th>
+				<th>아이디</th>
+				<th>평점</th>
 			</tr>			
+			<c:forEach var="dto" items="${ dao2.list() }">
+				<tr>
+					<td><a href="/jsp_project/review/modifyForm.jsp?num=${ dto.num }">${ dto.m_name }</a></td>
+					<td>${ dto.id }</td>
+					<td>${ dto.r_grade }</td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
 	<jsp:include page="../default/footer.jsp"/>

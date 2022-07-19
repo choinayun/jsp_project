@@ -8,8 +8,12 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-	#minfo {display: flex; margin: auto; width: 1400px; }
+	#minfo {  margin: auto; width: 1400px; }
 	#wrap { margin: auto; width: 1400px; }
+	img { width: 250px; height: 300px; margin-top: 20px; margin-bottom: 20px; }
+	.movie { border-bottom: 2px solid black; border-top: 2px solid black; 
+			display: flex; }
+
 </style>
 
 </head>
@@ -24,9 +28,9 @@
 	<c:set var="dto" value="${dao.getInfo(param.m_name) }" />
 	
 	<div id="minfo">
-		<div>
 			<h2>${dto.m_name }</h2>
-			<hr>
+		<div class="movie">
+			<div>
 			<dl>
 				<dt>
 					 <b>조회수</b> ${dto.hit }<br>
@@ -36,16 +40,20 @@
 					 <b>줄거리</b> ${dto.story } 
 				</dt>
 			</dl>
-			<hr>
+			
 		</div>
 		<div>
 			<img src="${dto.img }">
 		</div>
+		</div>
 	</div>
-	
-	<input type="button" value="수정하기" onclick="location.href='modify.jsp?m_name=${dto.m_name }'">	
-	<input type="button" value="삭제하기" onclick="location.href='delete.jsp?m_name=${dto.m_name }'">	
 
+	<br>
+	<c:if test="${ loginId eq 'admin' }">
+		<input type="button" value="수정하기" onclick="location.href='modify.jsp?m_name=${dto.m_name }'">	
+		<input type="button" value="삭제하기" onclick="location.href='delete.jsp?m_name=${dto.m_name }'">	
+		<input type="button" value="리뷰 작성" onclick="location.href='/jsp_project/review/write.jsp?m_name=${dto.m_name}'">
+	</c:if>
 	<jsp:include page="/default/footer.jsp"/>
 	</div>
 	

@@ -48,8 +48,6 @@
 		<input type="button" value="목록이동" onclick="location.href='list.jsp'">
 	</form>
 	
-	
-	
 	<jsp:include page="/default/footer.jsp"/>
 	</div>
 

@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-	#mlist {display: flex; margin: auto; width: 1400px; }
+	#mlist { display: flex; margin: auto; width: 1400px; }
 	#wrap { margin: auto; width: 1400px; }
 </style>
 
@@ -23,10 +23,12 @@
 
 	<jsp:useBean id="dao" class="movie.MovieDAO" />
 	<% ArrayList<MovieDTO> hli = dao.hitList(); %>
-	
-	<input type="button" value="조회순" onclick="location.href='hitList.jsp'">
-	<input type="button" value="평점순" onclick="location.href='list.jsp'">
-	<input type="button" value="영화 등록" onclick="location.href='insert.jsp'">
+	<br>
+	<div id="list">
+		<input type="button" value="조회수" onclick="location.href='hitList.jsp'">
+		<input type="button" value="평점순" onclick="location.href='list.jsp'">
+	</div>
+	<hr>
 	
 	<% for(MovieDTO dto : hli) { %>
 	<div id="mlist">

@@ -31,10 +31,13 @@
 			li = dao.list();
 		}
 	%>
-	<c:if test="${ param.top == false }">
-		<input type="button" value="조회수" onclick="location.href='hitList.jsp'">
-		<input type="button" value="평점순" onclick="location.href='list.jsp?top=false'">
-	</c:if>
+	<br>
+	<div>
+		<c:if test="${ param.top == false }">
+			<input type="button" value="조회수" onclick="location.href='hitList.jsp'">
+			<input type="button" value="평점순" onclick="location.href='list.jsp?top=false'">
+		</c:if>
+	</div>
 	<hr>
 	
 	<% for(MovieDTO dto : li) { %>

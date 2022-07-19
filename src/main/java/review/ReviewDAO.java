@@ -80,6 +80,20 @@ public class ReviewDAO {
 			ps.setFloat(4, dto.getR_grade());
 			ps.setString(5, dto.getContent());
 			ps.executeUpdate();
+			avgGrade(dto.getM_name());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void avgGrade(String m_name) {
+		//리뷰 테이블에 저장된 평점 평균값을 구해서 영화 테이블 grade에 저장하기
+		String sql = "update movie set grade=(select round(avg(r_grade), 1) from (select * from review where m_name=?) group by m_name) where m_name=?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, m_name);
+			ps.setString(2, m_name);
+			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -135,7 +149,7 @@ public class ReviewDAO {
 	}
 	public ArrayList<ReviewDTO> MyIn(String id) {
 		//해당 id의 정보 가져오기
-		String sql = "select * from review where id='"+id+"'";
+		String sql = "select * from review where id='"+id+"' order by num desc";
 		ArrayList<ReviewDTO> list = new ArrayList<ReviewDTO>();
 		try {
 			ps = con.prepareStatement(sql);

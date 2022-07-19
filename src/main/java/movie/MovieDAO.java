@@ -14,7 +14,6 @@ public class MovieDAO {
 	PreparedStatement ps;
 	ResultSet rs;
 
-	
 	public MovieDAO() {
 		try {
 			con = DBConnect.getConnection();
@@ -120,25 +119,6 @@ public class MovieDAO {
 		return null; 
 	}
 	
-	public void insert(String m_name, String age, String genre, String story, String img ) {
-		// 새로운 영화 등록
-		
-		String sql = "insert into movie(m_name,hit,grade,age,genre,story,img)"
-				+ "values(?,0,0,?,?,?,?)";
-		
-		try {
-			ps = con.prepareStatement(sql);
-			ps.setString(1, m_name);
-			ps.setString(2, age);
-			ps.setString(3, genre);
-			ps.setString(4, story);
-			ps.setString(5, img);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 	public void update(MovieDTO dto) {
 		// 영화 정보 수정
 		
@@ -231,4 +211,24 @@ public class MovieDAO {
 		return list;
 	}
 	
+	public ArrayList<MovieDTO> getMovieList() {
+		// 영화 홈 조회수 순위 10개 가져오기 
+		
+		String sql = "select * from movie where rownum between 1 and 10 order by hit desc";
+		ArrayList<MovieDTO> mli = new ArrayList<MovieDTO>();
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				mli.add(getMovie());
+			}
+			 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mli;
+	}
+
 }

@@ -1,4 +1,4 @@
-<%@page import="review.ReviewDTO"%>
+
 <%@page import="review.ReviewDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -45,21 +45,22 @@
 				<td>평점</td>
 				<td colspan="3">
 				<img src="img/star.png" width="12px" height="12px" >
+
 				<select name="r_grade" id="r_grade">
+				<option value="${dto.getR_grade() }" selected disabled hidden>Choose here</option>
 				<option >0<option>1<option >2<option>3<option >4<option>5
 				<option >6<option>7<option >8<option>9<option >10
 				</select>
-		
 				</td>
 			</tr>
 			<tr>
 				<td>내용 작성</td>
-				<td colspan="3"><textarea name="content" style="min-width: 430px; min-height: 300px;" id="content"></textarea></td>
+				<td colspan="3"><textarea name="content" style="min-width: 430px; min-height: 300px;" id="content">${dto.getContent()}</textarea></td>
 			</tr>
 			<tr>
 				<td colspan="4" align="right">
 				<input type="button" value="수정 완료" onclick="modifyCheck(${dto.num})">
-				<input type="button" value="수정 취소" onclick="location.href='write_view.jsp'">
+				<input type="button" value="수정 취소" onclick="location.href='list.jsp'">
 				<input type="button" value="삭제" onclick="location.href='delete.jsp?num=${dto.num}'">
 				</td>
 			</tr>
