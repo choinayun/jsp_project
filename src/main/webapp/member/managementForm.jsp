@@ -17,6 +17,7 @@
 	th:last-child, td:last-child { border-right: none; }
 	.management .tap input { padding: 5px 30px 5px 30px; border-radius: 10px; font-size: 16pt; }
 	.management .tap { text-align: center; margin-top: 40px; margin-bottom: 5px; }
+	.renewalBtn { text-align: left; border-bottom-color: white; }
 </style>
 <script type="text/javascript">
 	function memberTap(){		
@@ -78,6 +79,9 @@
 				<th>123123</th>
 				<th>12313</th>
 				<th>12312312</th>
+			</tr>
+			<tr class="renewalBtn">
+				<td colspan="3" ><input type="button" value="영화 갱신" onclick="location.href='/jsp_project/movie/movieRenewal.jsp'"></td>
 			</tr>
 		</table>
 		<table border="1" class="review_list" style="display: none;">

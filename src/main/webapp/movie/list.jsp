@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +23,18 @@
 	<!-- 영화리스트 평점순으로 정렬 -->
 
 	<jsp:useBean id="dao" class="movie.MovieDAO" />
-	<% ArrayList<MovieDTO> li = dao.list(); %>
-	
-	<input type="button" value="조회수" onclick="location.href='hitList.jsp'">
-	<input type="button" value="평점순" onclick="location.href='list.jsp'">
+	<% 
+		ArrayList<MovieDTO> li = new ArrayList<MovieDTO>();
+		if(request.getParameter("top").equals("true")) {
+			li = dao.getTopMovie();
+		}else{			
+			li = dao.list();
+		}
+	%>
+	<c:if test="${ param.top == false }">
+		<input type="button" value="조회수" onclick="location.href='hitList.jsp'">
+		<input type="button" value="평점순" onclick="location.href='list.jsp?top=false'">
+	</c:if>
 	<hr>
 	
 	<% for(MovieDTO dto : li) { %>

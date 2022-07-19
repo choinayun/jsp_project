@@ -3,6 +3,7 @@ package movie;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import DBPKG.DBConnect;
@@ -174,5 +175,60 @@ public class MovieDAO {
 		}
 	}
 	
+	public void movieSave(ArrayList<MovieDTO> list) {
+		String sql = "insert into movie(grade, hit, m_name,story,genre,age,img) values(0, 0, ?, ?, ?, ?, ?)";
+		
+		for(MovieDTO dto : list) {
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, dto.getM_name());
+				ps.setString(2, dto.getStory());
+				ps.setString(3, dto.getGenre());
+				ps.setString(4, dto.getAge());
+				ps.setString(5, dto.getImg());
+				ps.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public ArrayList<MovieDTO> getTopMovie() {
+		String sql = "select * from movie where rownum between 1 and 30 order by hit desc";
+		ArrayList<MovieDTO> list = new ArrayList<MovieDTO>();
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				list.add(getMovie());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<MovieDTO> getSearch(String word) {
+		String sql = "select * from movie where m_name like ?";
+		ArrayList<MovieDTO> list = new ArrayList<>();
+		try {
+			if(!word.equals("")) {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, "%" + word + "%");
+				rs = ps.executeQuery();
+				while(rs.next()) {
+					list.add( getMovie() );
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 	
 }
