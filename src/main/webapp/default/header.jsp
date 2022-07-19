@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -54,6 +53,8 @@
 		<ul>
 			<li><a href="/jsp_project/movie/list.jsp">전체 영화</a></li>	
 			<li><a href="">TOP 10</a></li>
+			<li><a href="/jsp_project/movie/list.jsp">영화 순위</a></li>	
+			<li><a href="">홈</a></li>
 			<li><a href="/jsp_project/review/list.jsp">리뷰</a></li>
 			<li class="search"><input type="text" placeholder="Search" name="search" onkeyup="enterKey(this)" id="search"></li>
 			<li><input type="button" value="검색" class="searchBtn" onclick="searchBtn()"></li>

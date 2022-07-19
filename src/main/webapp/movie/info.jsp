@@ -47,11 +47,19 @@
 		</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<br>
 	<c:if test="${ loginId eq 'admin' }">
 		<input type="button" value="수정하기" onclick="location.href='modify.jsp?m_name=${dto.m_name }'">	
 		<input type="button" value="삭제하기" onclick="location.href='delete.jsp?m_name=${dto.m_name }'">	
 	</c:if>
+=======
+	
+	<input type="button" value="수정하기" onclick="location.href='modify.jsp?m_name=${dto.m_name }'">	
+	<input type="button" value="삭제하기" onclick="location.href='delete.jsp?m_name=${dto.m_name }'">	
+	<input type="button" value="리뷰 작성" onclick="location.href='/jsp_project/review/write.jsp?m_name=${dto.m_name}'">
+
+>>>>>>> bc7274426cdddc7730d3d64a368f64562ca3e398
 	<jsp:include page="/default/footer.jsp"/>
 	</div>
 	

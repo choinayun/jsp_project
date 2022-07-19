@@ -20,7 +20,7 @@
 		<tr>
 			<td colspan="3" style="align-content: left; font-size: bold;"><h4>전체 리스트</h4></td>
 			<td colspan="3" align="right" >
-		<input type="button" value="내가 작성한 리뷰 보기" onclick="location.href='write_view.jsp?id=고길동'">
+		<input type="button" value="내가 작성한 리뷰 보기" onclick="location.href='write_view.jsp?id=${loginId}'">
 		</td>
 		</tr>
 		<tr>
@@ -35,17 +35,10 @@
 	<c:forEach var="dto" items="${dao.list() }">
 		<tr>
 		<td>${dto.num }</td>
-		<td width="300px"><a href="">${dto.m_name }</a></td>
+		<td width="300px"><a href="/jsp_project/movie/info.jsp?m_name=${dto.m_name}">${dto.m_name }</a></td>
 		<td>${dto.id }</td><td width="200px">${dto.time }</td><td>${dto.r_grade }</td><td width="700px">${dto.content }</td>
 		</tr>
 	</c:forEach>
-	<tr>
-	<td colspan="6" align="right">
-	<form action="write.jsp">
-		<input type="submit" value="리뷰 작성">
-	</form>
-	</td>
-	</tr>
 	</table>
 		<jsp:include page="/default/footer.jsp"/>
 </div>

@@ -13,7 +13,6 @@ public class MovieDAO {
 	PreparedStatement ps;
 	ResultSet rs;
 
-	
 	public MovieDAO() {
 		try {
 			con = DBConnect.getConnection();
