@@ -85,6 +85,7 @@ public class ReviewDAO {
 			e.printStackTrace();
 		}
 	}
+	
 	public void avgGrade(String m_name) {
 		//리뷰 테이블에 저장된 평점 평균값을 구해서 영화 테이블 grade에 저장하기
 		String sql = "update movie set grade=(select round(avg(r_grade), 1) from (select * from review where m_name=?) group by m_name) where m_name=?";
