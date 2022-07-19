@@ -45,6 +45,7 @@
 	
 	<input type="button" value="수정하기" onclick="location.href='modify.jsp?m_name=${dto.m_name }'">	
 	<input type="button" value="삭제하기" onclick="location.href='delete.jsp?m_name=${dto.m_name }'">	
+	<input type="button" value="리뷰 작성" onclick="location.href='/jsp_project/review/write.jsp?m_name=${dto.m_name}'">
 
 	<jsp:include page="/default/footer.jsp"/>
 	</div>

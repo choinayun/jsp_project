@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -52,7 +51,7 @@
 
 	<div class="service_area">
 		<ul>
-			<li><a href="">영화 순위</a></li>	
+			<li><a href="/jsp_project/movie/list.jsp">영화 순위</a></li>	
 			<li><a href="">홈</a></li>
 			<li><a href="/jsp_project/review/list.jsp">리뷰</a></li>
 			<li class="search"><input type="text" placeholder="Search" name="search" onkeyup="enterKey(this)" id="search"></li>
